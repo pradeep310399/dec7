@@ -1,0 +1,153 @@
+1.RELATIVE XPATH:XPath pattern based on the attribute / text.
+It can be classified into 
+         *ATTRIBUTE BASED XPATH
+		 *PARTIAL ATTRIBUTE BASED XPATH
+		 *TEXT BASED XPATH
+		 *PARTIAL  TEXT BASED XPATH
+		 
+		 
+  *ATTRIBUTE BASED XPATH:
+    SYNTAX:
+          //tagName[@attribute='value of attribute']	
+		  
+	EXAMPLE:
+          //input[@id='email']	
+		  
+  *PARTIAL ATTRIBUTE BASED XPATH:
+    SYNTAX:
+          //tagName[contains(@attribute,'value')]	
+	EXAMPLE:
+         //input[contains(@id,'email')]	
+		 
+  *TEXT BASED XPATH:
+    SYNTAX:
+         //tagName[text()='value']	
+		 
+	EXAMPLE:
+         //a[text()='Go to Home Page']	
+		 
+  *PARTIAL TEXT BASED XPATH:
+    SYNTAX:
+         //tagName[contains(text(),'value')]	
+	
+	EXAMPLE:
+	     //a[contains(text(),'Go to Home Page')]
+		 
+2.INDEX BASED XPATH/COLLECTION BASED XPATH:XPath pattern based on the indexes with(out) relations.
+It can be classified into
+        >INDEX BASED XPATH USING ATTRIBUTE.
+		>INDEX BASED XPATH USING TEXT.
+		>USING CHILD ITEM INDEX.
+		>USING AND CONDITION.
+		>USING OR CONDITION.
+  >INDEX BASED XPATH USING ATTRIBUTE:
+	SYNTAX:
+         (//tagName[@attribute='value'])[index]
+
+     EXAMPLE:
+          (//input[@id='email'])[1]	
+  >INDEX BASED XPATH USING TEXT:
+    SYNTAX: 
+         (//tagName[text()='value')[index]	
+		 
+	 EXAMPLE:
+         (//a[text()='Go to Home Page'])[2]
+		 
+  >USING CHILD ITEM INDEX:
+	SYNTAX: 
+         (parent-xpath)/child-tagName[index]
+
+     EXAMPLE:
+          (//div[@class='large-6 small-12 columns'])/input[1]
+  >USING AND CONDITION XPATH:		  
+
+     SYNTAX:
+          //tagName[@att1='v1' and @att2='v2']	
+     EXAMPLE;
+          //input[@type='text' and @id='email']	
+  >USING OR CONDITION:		  
+		  
+     SYNTAX:
+         	//tagName[@att1='v1' or @att2='v2']
+			
+			
+	 EXAMPLES:
+         //input[@type='text' or @id='email']
+		 
+3.PARENT - CHILD BASED XPATH:XPath pattern based on the (grand) parent to (grand) child relationships.
+    It can be classified into 
+	 
+		-->PARENT TO CHILD 
+		-->CHILD TO PARENT
+		-->CHILD TO GRAND PARENT
+		-->GRAND PARENT TO CHILD
+		-->LAST CHILD
+		
+	-->PARENT TO CHILD:
+        SYNTAX:
+          (xpath of parent)/child-tagName
+		
+		EXAMPLE:
+		(//div[@class='large-6 small-12 columns'])/input
+	
+    -->CHILD TO PARENT:
+        SYNTAX:
+          (xpath of child)/parent::parent-tagName
+
+        EXAMPLE:
+          (//input[@id='email'])/parent::div
+    -->CHILD TO GRAND PARENT:
+	    SYNTAX:
+		 (xpath of child)/ancestor::ancestor-tagName
+		 
+		EXAMPLE:
+         (//input[@id='email'])/ancestor::section
+
+    -->GRAND PARENT TO CHILD:
+        SYNTAX:
+         (xpath of ancestor)//child-tagName
+        EXAMPLE:
+        (//section[@class='innerblock'])//input	
+
+    -->LAST CHILD:
+        SYNTAX:
+          (xpath of parent)/child-tagName[last()]	
+
+        EXAMPLE:
+          (//div[@class='large-6 small-12 columns'])/input[last()]	
+4.AXES BASED XPATH:
+     
+    It can be classified into 
+        >YOUNGER SIBLING
+        >ELDER SIBLING
+        >YOUNGER COUSIN
+        >ELDER COUSIN
+  >YOUNGER SIBLING:
+        SYNTAX:
+         (xpath)/following-sibling::sibling-tagName
+        EXAMPLE:
+         (//label[text()='Enter your email address'])/following-sibling::input	
+
+  >ELDER SIBLING:
+        SYNTAX:
+         (xpath)/preceding-sibling::sibling-tagName
+
+        EXAMPLE:
+         (//input[@id='email'])/preceding-sibling::label
+
+  >YOUNGER COUSIN:
+        SYNTAX:
+         (xpath)/following::cousin-tagName
+        
+        EXAMPLE:
+         (//input[@id='email'])/following::label	
+
+  >ELDER COUSIN:
+        SYNTAX:
+         (xpath)/preceding::cousin-tagName
+        EXAMPLE:
+         (//input[@id='email'])/preceding::label		
+
+		  
+		
+		 
